@@ -30,6 +30,7 @@ Ao iniciar o aplicativo, ele irá exibir uma tela com uma lista de itens do chec
 
 *Aqui você pode realizar duas ações: [criar](#Criar-Item) um novo item ou [visualizar](#Visualizar-Item) os detalhes de um item*
 
+#Criar-Item
 <h2>Criar um novo item</h2>
 <img src="https://user-images.githubusercontent.com/31350420/226323664-90154543-043e-4761-8cd8-ac3267522e20.png" width="300" />
 <img src="https://user-images.githubusercontent.com/31350420/226323698-e1b79a94-1eb0-4fbb-a5dc-e5a17c662400.png" width="300" />
@@ -48,6 +49,7 @@ Ao iniciar o aplicativo, ele irá exibir uma tela com uma lista de itens do chec
 
 *A data de criação do item é gerada automaticamente*
 
+#Visualizar-Item
 <h2>Detalhes do item</h2>
 <img src="https://user-images.githubusercontent.com/31350420/226324639-47bc2ba4-2410-46f8-aa84-89781aaf232a.png" width="300" />
 
