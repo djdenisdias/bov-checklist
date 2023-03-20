@@ -12,7 +12,7 @@
 Antes de mais nada, é necessário ter instalado o Node e o Android Studio com um emulador configurado.<br/><br/>
 Após "clonar" o repositório do projeto, você deve acessar a pasta criada e rodar o comando ```npm install```<br/><br/>
 Em seguida você deve rodar o comando ```npx react native start``` <br/>
-*** durante esta etapa alguns erros podem ocorrer, mas não desista! Execute o comando ```npx react native start``` até que a aplicação funcione!
+*** durante esta etapa alguns erros podem ocorrer, MAS NÃO DESISTA! Execute o comando ```npx react native start``` novamente até que a aplicação funcione (Por algum motivo um erro pode ocorrer enquanto a aplicação efetua o "build", até 3 vezes ou mais :man_facepalming:) 
 
 # :space_invader: Entendendo o app
 <h2>Tela inicial</h2>
