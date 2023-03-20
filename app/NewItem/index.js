@@ -33,7 +33,6 @@ import YES from '../../assets/icons/yes.png';
 import NO from '../../assets/icons/no.png';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import DropDownPicker from 'react-native-dropdown-picker';
-import uuid from 'react-native-uuid';
 
 export default function NewItem(){
 
@@ -57,26 +56,28 @@ export default function NewItem(){
   const [disabled, setDisabled] = useState(false);
 
   async function addNewItem() {
+    const data = {
+      _id: Math.floor(1000000000 + Math.random() * 900000).toString(),
+      farm_name: farm_name,
+      farm_city: farm_city,
+      farmer: farmer,
+      supervisor: supervisor,
+      type:type,
+      amount_of_milk_produced: parseInt(amount_of_milk_produced),
+      number_of_cows_head: parseInt(number_of_cows_head),
+      latitude: -23.5505567806661,
+      longitude: -46.77197013851934,
+      created_at: new Date(),
+      updated_at: new Date(),
+      had_supervision: had_supervision
+    }
 
     const realm = await getRealm();
 
     try {
       realm.write(() => {
-        realm.create("Checklist", {
-          _id: uuid.v4(),
-          farm_name: farm_name,
-          farm_city: farm_city,
-          farmer: farmer,
-          supervisor: supervisor,
-          type:type,
-          amount_of_milk_produced: parseInt(amount_of_milk_produced),
-          number_of_cows_head: parseInt(number_of_cows_head),
-          latitude: -23.5505567806661,
-          longitude: -46.77197013851934,
-          created_at: new Date(),
-          updated_at: new Date(),
-          had_supervision: had_supervision
-        });
+        realm.create("Checklist", data);
+        realm.create("NewItems", data);
       });
 
       Alert.alert("Oba!", "Novo item criado com sucesso!");

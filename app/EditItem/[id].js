@@ -73,25 +73,28 @@ export default function EditItem(){
 	}
 
   async function updateItem() {
+    const data = {
+      _id: item._id,
+      farm_name: farm_name,
+      farm_city: farm_city,
+      farmer: farmer,
+      supervisor: supervisor,
+      type:type,
+      amount_of_milk_produced: parseInt(amount_of_milk_produced),
+      number_of_cows_head: parseInt(number_of_cows_head),
+      latitude: -23.5505567806661,
+      longitude: -46.77197013851934,
+      created_at: item.created_at,
+      updated_at: new Date(),
+      had_supervision: had_supervision
+    }
+
     const realm = await getRealm();
 
     try {
       realm.write(() => {
-        realm.create("Checklist", {
-          _id: item._id,
-          farm_name: farm_name,
-          farm_city: farm_city,
-          farmer: farmer,
-          supervisor: supervisor,
-          type:type,
-          amount_of_milk_produced: parseInt(amount_of_milk_produced),
-          number_of_cows_head: parseInt(number_of_cows_head),
-          latitude: -23.5505567806661,
-          longitude: -46.77197013851934,
-          created_at: item.created_at,
-          updated_at: new Date(),
-          had_supervision: had_supervision
-        }, "modified");
+        realm.create("Checklist", data, "modified");
+        realm.create("EditedItems", data, "modified");
       });
 
       Alert.alert("Oba!", "Item alterado com sucesso!");
@@ -272,7 +275,7 @@ export default function EditItem(){
             </Block>
 
             <View>
-              <ButtonFilled title="atualizar" color="#78c4eb" onPress={updateItem} disabled={disabled} />
+              <ButtonFilled title="atualizar" color="#78c4eb" onPress={()=>updateItem()} disabled={disabled} />
             </View>
             </EditItemScrollBody>
         </EditItemBody>
